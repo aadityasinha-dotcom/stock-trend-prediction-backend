@@ -1,0 +1,8 @@
+django
+djangorestframework
+pandas
+matplotlib
+numpy
+yfinance
+scikit-learn
+datetime
