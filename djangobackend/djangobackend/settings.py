@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-i=)_8r1qht=e(80+k=)@&1o=x=un!=39utg@ld3t*v$l!su5_+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", ".vercel.app", ".now.sh"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -56,7 +56,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "djangobackend.urls"
 
-'''
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -72,7 +71,6 @@ TEMPLATES = [
         },
     },
 ]
-'''
 
 WSGI_APPLICATION = "djangobackend.wsgi.application"
 
@@ -124,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = (
     #This lets Django's collectstatic store our bundles

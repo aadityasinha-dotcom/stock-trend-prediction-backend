@@ -23,12 +23,6 @@
       "src": "/(.*)",
       "dest": "djangobackend/wsgi.py"
     }
-  ],
-  "functions": {
-    "django/api/views.py": {
-      "memory": 50,
-      "maxDuration": 30
-    }
-  }
+  ]
 }
 
