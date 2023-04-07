@@ -1,2 +1,2 @@
 
-## backend
+## Stock trend prediction backend
