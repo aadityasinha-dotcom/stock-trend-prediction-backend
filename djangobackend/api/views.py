@@ -113,14 +113,14 @@ def train_model(df, ticker):
     model.compile(optimizer='adam', loss='mean_squared_error')
 
     # Train the model
-    model.fit(x_train, y_train, batch_size=1, epochs=1)
+    model.fit(x_train, y_train, batch_size=1, epochs=10)
 
     # Get the models predicted price values 
     predictions = model.predict(x_test)
     predictions = scaler.inverse_transform(predictions)
 
     # Get the root mean squared error (RMSE)
-    rmse = np.sqrt(np.mean(((predictions - y_test) ** 2)))
+    rmse = np.sqrt(np.mean(((predictions - y_test) ** 2))) * 10
     # Plot the data
     train = data[:training_data_len]
     valid = data[training_data_len:]
@@ -134,6 +134,8 @@ def train_model(df, ticker):
     plt.plot(valid[['Close', 'Predictions']])
     plt.legend(['Original Price', 'Val', 'Predicted Price'])
     plt.savefig(f'media/prediction/{ticker}.png')
+
+    return rmse
 
 
 
@@ -153,9 +155,10 @@ def display_stock(request):
         # Closing Price History
         closing_price_history(df, ticker)
         # Train Data Model
-        train_model(df, ticker)
+        rmse = train_model(df, ticker)
         stock_json = json.loads(stock.to_json())
         stock_json['file_name'] = f"{ticker}.png"
+        stock_json['rmse'] = f"{rmse}"
         return JsonResponse(stock_json, safe=False)
         # return render(request, 'stock.html', context)
     # else:
