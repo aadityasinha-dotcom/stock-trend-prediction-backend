@@ -54,8 +54,6 @@ rsa==4.9
 scikit-learn==1.2.0
 scipy==1.10.0
 six==1.16.0
-sklearn==0.0.post1
-soupsieve==2.3.2.post1
 sqlparse==0.4.3
 tensorboard==2.12.3
 tensorboard-data-server==0.7.0
